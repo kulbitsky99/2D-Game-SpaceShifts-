@@ -40,13 +40,13 @@ class Satellite : public GameObject
 
 		sf::Sprite 		& 	getSprite 	();
 
-		const float 		showOrbit 	() const;
+		float 		showOrbit 	();
 		float & 			getOrbit	();
 
-		const float 		showDelta 	() const;
+		float 		showDelta 	() const;
 		float & 			getDelta	();
 
-		const float 		showBeta 	() const;
+		float 		showBeta 	() ;
 		float & 			getBeta		();
 
 };

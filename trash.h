@@ -21,8 +21,8 @@ class Trash : public GameObject
 		sf::CircleShape & 	getCircle 	();
 		sf::Sprite 		&	getSprite	();
 		
-		const int 			getCircleX 	();
-		const int 			getCircleY 	();
+		int 			getCircleX 	();
+		int 			getCircleY 	();
 };
 
 #endif

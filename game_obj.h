@@ -21,10 +21,10 @@ class GameObject
 		GameObject	(int x, int y);
 		~GameObject	();
 
-		const int 	getX_Null();
-		const int 	getY_Null();
+		int 	getX_Null();
+		int 	getY_Null();
 
-		const int 	isAlive();
+		int 	isAlive();
 		void 		killObject();
 		void 		aliveObject();
 };

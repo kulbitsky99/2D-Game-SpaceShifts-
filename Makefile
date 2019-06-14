@@ -1,15 +1,23 @@
-SOURCE_S = functions.cpp physics_engine.cpp earth.cpp trash_obj.cpp main.cpp game_obj.cpp satellite_obj.cpp bullet_obj.cpp
+SOURCES_C = $(wildcard *.cpp)
+OBJS_O = $(SOURCES_C:.cpp=.o)
 CC = g++
-CFLAGS = -Wall -Wextra -pedantic
+IDIR =../
+CFLAGS = -Wall -Wextra -pedantic -I$(IDIR)
+SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 RM = /bin/rm -rf
 
-all: main objects clean
+_DEPS = $(wildcard *.h)
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-main: 
-	g++ -c $(SOURCE_S)
+all: main objects
 
-objects: 
-	g++ functions.o earth.o physics_engine.o trash_obj.o satellite_obj.o bullet_obj.o game_obj.o main.o -o go -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+main: $(OBJS_O)
+	$(CC) -c $(SOURCES_C)
+
+objects: $(OBJS_O)
+	$(CC) $(OBJS_O) -o go $(SFMLFLAGS)
+%.o: %.cpp $(DEPS)
+	$(CC) $(CFLAGS) -c -o $(@) $<
 
 clean:  
-	$(RM) *.o pro
+	$(RM) *.o go

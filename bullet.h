@@ -25,8 +25,8 @@ class Bullet : public GameObject
 
 		sf::Sprite & 		getSprite ();
 
-		const float getVX();
-		const float getVY();
+		float getVX();
+		float getVY();
 		void 		setVX(float velocity_x);
 		void		setVY(float velocity_y);
 		Bullet 	(int x, int y, float scale);
